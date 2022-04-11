@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot TodoFooter should snapshot TodoFooter correctly 1`] = `
+"<div class=\\"todo-footer\\">
+  <p>1 task left</p><a href=\\"/followers\\">Followers</a>
+</div>"
+`;
+
+exports[`Testing TodoFooter Snapshot TodoFooter should snapshot TodoFooter correctly 1`] = `
+"<div class=\\"todo-footer\\">
+  <p>1 task left</p><a href=\\"/followers\\">Followers</a>
+</div>"
+`;
