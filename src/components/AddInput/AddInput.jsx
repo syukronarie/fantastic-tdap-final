@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./AddInput.css";
 import { v4 } from "uuid";
+import TodoModel from "../../services/TodoService";
 
 function AddInput({ setTodos, todos }) {
   const [todo, setTodo] = useState("");
@@ -8,14 +9,13 @@ function AddInput({ setTodos, todos }) {
   const addTodo = (e) => {
     e.preventDefault();
     if (!todo) return;
-    let updatedTodos = [
-      ...todos,
-      {
-        id: v4(),
-        task: todo,
-        completed: false,
-      },
-    ];
+    const id = v4();
+    const task = todo;
+    const completed = false;
+
+    const newTodo = new TodoModel(id, task, completed);
+
+    let updatedTodos = [...todos, newTodo.getTodo()];
     setTodos(updatedTodos);
     setTodo("");
   };
