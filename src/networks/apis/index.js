@@ -3,7 +3,7 @@ import CONST from "../../utils/constants";
 
 const { baseApi } = CONST;
 
-const accessToken = Cookies.get("accessToken");
+// const accessToken = Cookies.get("accessToken");
 
 const config = {
   baseURL: baseApi,
