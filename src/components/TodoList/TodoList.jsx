@@ -39,8 +39,8 @@ function TodoList({ todos, updateTodos, deleteTodo }) {
               >
                 {todo.title}
               </div>
-              <button className="remove-todo" onClick={() => deleteTodo({ variables: { deleteTodoId: todo.id } })}>
-                X
+              <button className="delete-btn" onClick={() => deleteTodo({ variables: { deleteTodoId: todo.id } })}>
+                delete
               </button>
             </div>
           ))}

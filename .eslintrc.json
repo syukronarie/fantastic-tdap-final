@@ -17,6 +17,7 @@
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "no-shadow": "off",
     "no-unused-expressions": "off",
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/button-has-type": 0
   }
 }
