@@ -1,8 +1,5 @@
-import {
-  actionRequestGetUser,
-  actionRequestGetUserInit,
-} from "./getUsers/getUser.slices";
-import { makeSelectorGetUser } from "../selectors";
+import { actionRequestGetUser, actionRequestGetUserInit } from './getUsers/getUser.slices';
+import { makeSelectorGetUser } from '../selectors';
 
 export const mapStateToProps = (state) => {
   return {

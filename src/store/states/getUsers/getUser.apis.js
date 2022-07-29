@@ -1,5 +1,6 @@
-import { axiosInstance } from "../../../networks/apis";
+/* eslint-disable import/prefer-default-export */
+import { axiosInstance } from '../../../configs/apis';
 
-export const apiGetUser = async () => {
-  return await axiosInstance.get("/user");
+export const apiGetUser = () => {
+  return axiosInstance.get('/user');
 };

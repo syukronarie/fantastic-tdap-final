@@ -1,4 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-return-assign */
+
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   success: false,
@@ -7,8 +11,8 @@ const initialState = {
 };
 
 const getUser = createSlice({
-  name: "getUser",
-  initialState: initialState,
+  name: 'getUser',
+  initialState,
   reducers: {
     actionRequestGetUser: (state) => state,
     actionRequestGetUserInit: (state) => (state = initialState),
@@ -29,12 +33,8 @@ const getUser = createSlice({
   },
 });
 
-export const {
-  actionRequestGetUser,
-  actionRequestGetUserInit,
-  actionReceiveGetUserSuccess,
-  actionReceiveGetUserError,
-} = getUser.actions;
+export const { actionRequestGetUser, actionRequestGetUserInit, actionReceiveGetUserSuccess, actionReceiveGetUserError } =
+  getUser.actions;
 
 export const getUserReducer = getUser.reducer;
 export const getUserInitialState = getUser.getInitialState;

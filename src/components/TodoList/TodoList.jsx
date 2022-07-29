@@ -1,54 +1,56 @@
-import React from 'react'
-import TodoFooter from '../TodoFooter/TodoFooter'
-import "./TodoList.css"
+/* eslint-disable react/button-has-type */
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-plusplus */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 
-function TodoList({
-    todos, setTodos
-}) {
+import React from 'react';
+import TodoFooter from '../TodoFooter/TodoFooter';
+import './TodoList.css';
 
-    const updateTask = (id) => {
-        let updatedTasks = todos.map((todo) => {
-            if(todo.id === id) {
-                todo.completed = !todo.completed;
-                return todo
-            } else {
-                return todo
-            }
-        });
-        setTodos(updatedTasks)
-    }
+function TodoList({ todos, updateTodos, deleteTodo }) {
+  const calcNumberOfIncompletedTasks = () => {
+    let count = 0;
+    todos.forEach((todo) => {
+      if (!todo.completed) count++;
+    });
+    return count;
+  };
 
-    const calcNumberOfIncompletedTasks = () => {
-        let count = 0;
-        todos.forEach(todo => {
-            if(!todo.completed) count++
-        })
-        return count
-    }
-
-    return (
-        <div className="todolist-container">
-            <div className="todos-container">
-                <div>
-                    {
-                        todos.map((todo, index) => (
-                            <div 
-                                className={`todo-item ${todo.completed && "todo-item-active"}`} 
-                                onClick={() => updateTask(todo.id)}
-                            >
-                                {todo.task}
-                            </div>
-                        ))
-                    }
-                </div>
+  return (
+    <div className="todolist-container">
+      <div className="todos-container">
+        <div>
+          {todos.map((todo) => (
+            <div className="todo-fragment" key={todo.id}>
+              <div
+                className={`todo-item ${todo.completed && 'todo-item-active'}`}
+                onClick={() =>
+                  updateTodos({
+                    variables: {
+                      updateTodo: {
+                        id: todo.id,
+                        completed: !todo.completed,
+                        updatedat: Date.toLocaleString(),
+                      },
+                    },
+                  })
+                }
+              >
+                {todo.title}
+              </div>
+              <button className="remove-todo" onClick={() => deleteTodo({ variables: { deleteTodoId: todo.id } })}>
+                X
+              </button>
             </div>
-            <div>
-                <TodoFooter 
-                    numberOfIncompleteTasks={calcNumberOfIncompletedTasks()}
-                />
-            </div>
+          ))}
         </div>
-    )
+      </div>
+      <div>
+        <TodoFooter numberOfIncompleteTasks={calcNumberOfIncompletedTasks()} />
+      </div>
+    </div>
+  );
 }
 
-export default TodoList
+export default TodoList;

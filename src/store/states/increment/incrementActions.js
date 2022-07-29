@@ -1,4 +1,4 @@
-import * as t from "./incrementTypes";
+import * as t from './incrementTypes';
 
 export const actionIncrementInit = () => {
   return { type: t.DISPATCH_INCREMENT_INIT };

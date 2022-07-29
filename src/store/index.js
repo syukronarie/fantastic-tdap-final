@@ -1,24 +1,15 @@
-import createSagaMiddleware from "@redux-saga/core";
-import storage from "redux-persist/lib/storage";
+/* eslint-disable import/no-extraneous-dependencies */
+import createSagaMiddleware from '@redux-saga/core';
+import storage from 'redux-persist/lib/storage';
 
-import rootReducers from "./reducers";
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+import rootReducers from './reducers';
 
-import { configureStore } from "@reduxjs/toolkit";
-import { watchSagas } from "./sagas";
-
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
+import { watchSagas } from './sagas';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   version: 1,
   storage,
 };
@@ -38,7 +29,7 @@ const store = configureStore({
     }),
     sagaMiddleware,
   ],
-  devTools: process.env.NODE_ENV !== "production",
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 sagaMiddleware.run(watchSagas);

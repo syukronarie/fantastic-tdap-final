@@ -1,7 +1,8 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import TodoPage from "../pages/TodoPage/TodoPage";
-import FollowersPage from "../pages/FollowersPage/FollowersPage";
+/* eslint-disable react/function-component-definition */
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import TodoPage from '../pages/TodoPage/TodoPage';
+import FollowersPage from '../pages/FollowersPage/FollowersPage';
 
 const SetupRouters = () => {
   return (
